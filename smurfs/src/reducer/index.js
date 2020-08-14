@@ -38,6 +38,8 @@ function reducer(state = initialState, action) {
         isLoading: true,
       };
     case POST_SMURFS_SUCCESS:
+      console.log('I succeed!')
+      console.log(action.payload)
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
@@ -52,7 +54,6 @@ function reducer(state = initialState, action) {
     default:
       return state;
   }
-  console.log
 }
 
 export default reducer;

@@ -29,7 +29,7 @@ function SmurfForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     postSmurfs(smurf);
-    setSmurf(smurfValues)
+    // setSmurf(smurfValues)
   };
 
   return (

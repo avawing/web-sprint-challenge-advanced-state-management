@@ -18,13 +18,12 @@ export const fetchSmurfs = () => (dispatch) => {
 
 export const postSmurfs = (smurf) => {
     return (dispatch) =>{
-    
+
     dispatch({type: POST_SMURFS_START})
     axios
     .post('http://localhost:3333/smurfs', {smurf})
-    .then(res => dispatch({type: POST_SMURFS_SUCCESS, payload: res})
+    .then(res => dispatch({type: POST_SMURFS_SUCCESS, payload: res}))
     .catch(error => dispatch({type: POST_SMURFS_FAIL, payload: `OH SMURF! Another smurfing error! ${error}`}))
-    )
-}
+    }
 
 }
