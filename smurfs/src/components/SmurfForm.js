@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import postSmurfs from '../actions'
 import { v4 as uuid } from 'uuid';
@@ -12,26 +12,33 @@ const mapStateToProps = (state) => {
   };
 
 function SmurfForm(props){
+    const [smurf, setSmurf] = useState(smurfValues)
+
+    const smurfValues = {
+        name: '',
+        age: 0,
+        height: 0,
+        id: uuid()
+            };
 
 const handleChange = event => {
-        {name: event.target.value };
+    setSmurf({...smurf, 
+        [event.target.name]: event.target.value})
+       
       }
     
 const handleSubmit = event => {
         event.preventDefault();
+        postSmurfs(smurf)
+}
     
-const smurf = {
-    name: '',
-    age: 0,
-    height: 0,
-    id: uuid()
-        };
+
     
     return(
-        <form onSubmit = {postSmurfs(smurf)}style = {{display: 'flex', flexDirection: 'column'}}>
-        <label htmlFor = 'name'>Name: <input type = 'text' name = 'name' id = 'name' /></label>
-        <label htmlFor = 'age'> Age: <input type = 'text' age = 'age' id = 'age' /></label>
-        <label htmlFor = 'height'> Height: <input type = 'text' height = 'height' id = 'age' /></label>
+        <form onSubmit = {handleSubmit}style = {{display: 'flex', flexDirection: 'column'}}>
+        <label htmlFor = 'name'>Name: <input type = 'text' name = 'name' id = 'name' onChange = {handleChange} /></label>
+        <label htmlFor = 'age'> Age: <input type = 'text' age = 'age' id = 'age' onChange = {handleChange}/></label>
+        <label htmlFor = 'height'> Height: <input type = 'text' height = 'height' id = 'age' onChange = {handleChange}/></label>
         <button>Add Smurf</button>
         </form>
     )
