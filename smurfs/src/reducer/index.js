@@ -40,7 +40,7 @@ function reducer(state = initialState, action) {
     case POST_SMURFS_SUCCESS:
       return {
         ...state,
-        smurfs: action.payload,
+        smurfs: [...state.smurfs, action.payload],
         isLoading: false,
       };
     case POST_SMURFS_FAIL:
@@ -52,6 +52,7 @@ function reducer(state = initialState, action) {
     default:
       return state;
   }
+  console.log
 }
 
 export default reducer;
