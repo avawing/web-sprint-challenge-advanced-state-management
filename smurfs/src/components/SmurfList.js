@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 function SmurfList(props){
     useEffect(()=>{
         props.fetchSmurfs()
-    }, [])
+    }, [props.smurfs])
 
     return(
         <div>

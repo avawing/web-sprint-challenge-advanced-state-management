@@ -28,7 +28,7 @@ function SmurfForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postSmurfs(smurf);
+    props.postSmurfs(smurf);
     // setSmurf(smurfValues)
   };
 
@@ -43,7 +43,7 @@ function SmurfForm(props) {
       </label>
       <label htmlFor="age">
         {" "}
-        Age: <input value = {smurf.age} type="number" name="age" id="age" onChange={handleChange} />
+        Age: <input value = {smurf.age} type="text" name="age" id="age" onChange={handleChange} />
       </label>
       <label htmlFor="height">
         {" "}

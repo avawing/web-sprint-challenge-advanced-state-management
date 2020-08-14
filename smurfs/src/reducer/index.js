@@ -33,19 +33,20 @@ function reducer(state = initialState, action) {
         errors: action.payload,
       };
     case POST_SMURFS_START:
+      console.log("I started.");
       return {
         ...state,
         isLoading: true,
       };
     case POST_SMURFS_SUCCESS:
-      console.log('I succeed!')
-      console.log(action.payload)
+      console.log("I succeed!");
       return {
         ...state,
         smurfs: [...state.smurfs, action.payload],
         isLoading: false,
       };
     case POST_SMURFS_FAIL:
+      console.log("I fail!");
       return {
         ...state,
         isLoading: false,
